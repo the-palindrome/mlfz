@@ -3,7 +3,7 @@
 
 Hi there! `mlfz` is my attempt to provide reference implementations of machine learning algorithms for educational purposes. The goal is not performance, but simplicity: you won't just use this library; you'll dig through the source code to understand how machine learning works on the inside. [Check the documentation](https://mlfz.readthedocs.io/), which is written like an interactive textbook on the internals of machine learning and neural networks.
 
-If you find value in this project, support me by grabbing a copy of my [Mathematics of Machine Learning](https://tivadardanka.com/books/mathematics-of-machine-learning) book!
+If you find value in this project, support me by grabbing a copy of my [Mathematics of Machine Learning](https://www.amazon.com/Mathematics-Machine-Learning-calculus-probability/dp/1837027870/) book!
 
 ## Quickstart
 
