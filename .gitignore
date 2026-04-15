@@ -7,7 +7,6 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-.mlfz
 .Python
 build/
 develop-eggs/
