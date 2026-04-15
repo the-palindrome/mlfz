@@ -1,6 +1,4 @@
 import numpy as np
-from scipy.stats import entropy
-from graphviz import Digraph
 from typing import List, Callable
 from ..base import Model
 
@@ -26,6 +24,11 @@ def gini_impurity(p):
         gi: float, the Gini impurity of the label vector.
     """
     return 1 - (p**2).sum()
+
+
+def entropy(p):
+    p = p[p > 0]
+    return -np.sum(p * np.log(p))
 
 
 def leaf_score(Y, score_fn):
@@ -156,36 +159,6 @@ class DecisionTree(Model):
         )
 
         return predictions
-
-    @property
-    def digraph(self):
-        def build_graph(tree, graph, node_id):
-            if tree.is_leaf:
-                label = (
-                    f"{tree.predicted_class:.2f}"
-                    if isinstance(tree.predicted_class, float)
-                    else f"{tree.predicted_class}"
-                )
-                graph.node(str(node_id), label=label)
-                return
-
-            label = f"X[{tree.split_feature_idx}] < {tree.threshold:.2f}"
-            graph.node(str(node_id), label=label)
-
-            left_child_id = node_id * 2 + 1
-            right_child_id = node_id * 2 + 2
-
-            if tree.left_child:
-                graph.edge(str(node_id), str(left_child_id), label="True")
-                build_graph(tree.left_child, graph, left_child_id)
-
-            if tree.right_child:
-                graph.edge(str(node_id), str(right_child_id), label="False")
-                build_graph(tree.right_child, graph, right_child_id)
-
-        graph = Digraph()
-        build_graph(self, graph, node_id=0)
-        return graph
 
 
 class ClassificationTree(DecisionTree):

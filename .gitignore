@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+.mlfz
 .Python
 build/
 develop-eggs/
@@ -166,3 +167,5 @@ _build/
 
 # Other
 scratchpad.ipynb
+tmp/
+.devcontainer/
