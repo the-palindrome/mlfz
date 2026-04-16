@@ -48,3 +48,11 @@ def test_knn_regressor(ds_regression):
             preds = knn.predict(X)
             assert preds.shape == Y.shape
             knn(X)
+
+
+def test_knn_unsupported_metric():
+    with pytest.raises(NotImplementedError, match="Only the 'euclidean' metric"):
+        KNNClassifier(3, metric="manhattan")
+
+    with pytest.raises(NotImplementedError, match="Only the 'euclidean' metric"):
+        KNNRegressor(3, metric="cosine")

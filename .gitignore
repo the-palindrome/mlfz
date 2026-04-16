@@ -166,3 +166,5 @@ _build/
 
 # Other
 scratchpad.ipynb
+tmp/
+.devcontainer/
